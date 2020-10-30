@@ -409,7 +409,7 @@ module.exports = class Colony extends EventEmitter {
     return !this.hasError();
   }
 
-  toObject() {
+  toArray() {
     const result = []
     let { length } = this[_collection];
     while( length-- ) {
