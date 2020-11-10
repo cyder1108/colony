@@ -59,6 +59,13 @@ module.exports = class Colony extends EventEmitter {
       this[_beforeSetFilters] = {}
       this[_beforeGetFilters] = {}
     }
+
+    this.initialize()
+
+  }
+
+  initialize() {
+    return
   }
 
   root() {
