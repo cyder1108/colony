@@ -177,7 +177,7 @@ module.exports = class Colony extends EventEmitter {
   }
 
   sort( order, comparer ) {
-    var array = this.toObject();
+    var array = this.toArray();
     let { length } = array;
     order = order.toLowerCase();
     var o = 1;
@@ -238,7 +238,14 @@ module.exports = class Colony extends EventEmitter {
       var key = this.keys[i];
       result[key] = scm[key].default;
     }
-    result = Object.assign({}, result, attr );
+    var attr_keys = Object.keys( attr );
+    var vrset_keys = Object.keys(this[_virtualSetters])
+    for( var i = 0; i < attr_keys.length; i++ ) {
+      var key = attr_keys[i];
+      if( this.keys.includes( key ) || vrset_keys.includes(key) ) {
+        result[key] = attr[key]
+      }
+    }
     if( result["_id"] === null ) {
       result["_id"] = this[_createRandomId]()
     }

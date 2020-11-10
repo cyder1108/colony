@@ -254,7 +254,6 @@ test(`sort`, async t => {
   t.is( reversed.at(0).name, "三郎" );
   //users.reverse();
   //t.is( users.at(0).name, "三郎" );
-  console.log( users.toObject())
 });
 
 test(`beforeSet`, async t => {
