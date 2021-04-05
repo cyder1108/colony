@@ -519,7 +519,7 @@ module.exports = class Colony extends EventEmitter {
     for(var i = 0; i < keys.length; i++ ) {
       var key = keys[i];
       if( attr[key] !== void(0) ) {
-        attr = Object.assign({}, attr, this[_virtualSetters][key]( attr[key] ));
+        attr = Object.assign({}, attr, this[_virtualSetters][key]( attr[key], attr ));
         delete attr[key];
       }
     }
